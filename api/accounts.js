@@ -28,8 +28,14 @@ router.post('/register', (req, res) => {
                 password: '123456',
                 database: 'worklog'
             });
+            const data={
+                username,
+                password:hash,
+                email,
+                phoneNo
+            }
             connection.connect();
-            connection.query(query, [username, hash, email, phoneNo], (error, results) => {
+            connection.query(query, [data], (error, results) => {
                 if (error) {
                     res.status(500).json(error);
                 }
