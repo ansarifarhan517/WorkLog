@@ -28,9 +28,9 @@ router.post('/register', (req, res) => {
                 password: '123456',
                 database: 'worklog'
             });
-            const data={
+            const data = {
                 username,
-                password:hash,
+                password: hash,
                 email,
                 phoneNo
             }
@@ -47,6 +47,46 @@ router.post('/register', (req, res) => {
             });
         }
     });
+
+
+});
+
+router.post('/login', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    if (!username || !password) {
+        res.status(500).json()
+    }
+    let query = `select * from users where username=? `
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'farhans',
+        password: '123456',
+        database: 'worklog'
+    });
+    connection.query(query, [username], (error, results) => {
+        if (error) {
+            res.status(500).json(error)
+        }
+
+        bcrypt.compare(password, results[0].password, function (err, matched) {
+
+            if (err) {
+                res.status(500).json(err);
+            }
+            if (matched) {
+                res.status(200).json()
+
+            }
+            else {
+                res.status(500).json();
+            }
+        });
+
+
+    });
+
 
 
 });
