@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title display-4">Registeration</h5>
+                        <form action="">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Enter Email" aria-describedby="helpId">
+                                <div class="invalid-feedback"></div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="userName">Username</label>
+                                <input type="text" name="userName" id="userName" class="form-control"
+                                    placeholder="Enter Username" aria-describedby="helpId">
+                                <div class="invalid-feedback"></div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    placeholder="Enter Password" aria-describedby="helpId">
+                                <div class="invalid-feedback"></div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
+                                    placeholder="Enter Confirm Password" aria-describedby="helpId">
+                                <div class="invalid-feedback"></div>
+
+                            </div>
+                            <input name="submit" id="submit" class="btn btn-primary" type="button" value="Sumbit" onclick="onSubmit()">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const email = document.getElementById("email");
+        const userName = document.getElementById("userName");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        // const form = document.getElementsByTagName("form");
+
+
+        email.addEventListener('keyup', validateEmail);
+        userName.addEventListener('keyup', validateUserName);
+        password.addEventListener('keyup', validatePassword);
+        confirmPassword.addEventListener('keyup', validateConfirmPassword);
+        // form.addEventListener('click',onSubmit);
+
+        function validateEmail() {
+
+
+            if (email.value == "") {
+
+            }
+
+        }
+        function validateUserName() {
+
+        }
+        function validatePassword() {
+
+            if (password.value == "") {
+
+            }
+
+        }
+        function validateConfirmPassword() {
+
+            if (confirmPassword.value == "") {
+
+            }
+
+        }
+
+
+        function isValid() {
+            const isEmail = validateEmail();
+            const isUserName = validateUserName();
+            const isPassword = validatePassword();
+            const isConfirmPassword = validateConfirmPassword();
+
+
+            return  isEmail && isUserName && isPassword && isConfirmPassword
+        }
+        
+        
+        function onSubmit(e) {
+        //    e.preventDefault();
+            if (!isValid()) {
+                return
+            }
+            else{
+                console.log("hii");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
